@@ -6,23 +6,48 @@ import { ROUTES } from '../config/routes.config';
 import './Auth.css';
 
 export const Signup: React.FC = () => {
-  const navigate = useNavigate();
   const { signup, isLoading } = useAuth();
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [verificationSent, setVerificationSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     try {
       await signup(email, username, password);
-      navigate(ROUTES.HOME);
+      setVerificationSent(true);
     } catch (err) {
       setError('ACCESS DENIED. REGISTRATION FAILED.');
     }
   };
+
+  if (verificationSent) {
+    return (
+      <div className="auth-page">
+        <div className="auth-split">
+          <div className="auth-sidebar">
+            <div className="hero-eyebrow">TRANSMISSION SENT</div>
+            <h1>VERIFY YOUR IDENTITY</h1>
+            <p className="auth-subtitle">AWAITING CONFIRMATION</p>
+          </div>
+          <div className="auth-form-wrapper">
+            <div className="auth-container dossier-card">
+              <p style={{ marginBottom: '1rem' }}>
+                A verification link has been dispatched to <strong>{email}</strong>.
+              </p>
+              <p>Check your inbox and click the link to activate your account.</p>
+              <p className="auth-link" style={{ marginTop: '2rem' }}>
+                <Link to={ROUTES.LOGIN}>PROCEED TO LOGIN</Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="auth-page">

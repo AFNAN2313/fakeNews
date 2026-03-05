@@ -8,8 +8,8 @@ import './Auth.css';
 export const Login: React.FC = () => {
   const navigate = useNavigate();
   const { login, isLoading } = useAuth();
-  const [email, setEmail] = useState('demo@example.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -31,13 +31,6 @@ export const Login: React.FC = () => {
           <h1>SYSTEM LOGIN</h1>
           <p className="auth-subtitle">ENTER CREDENTIALS TO ACCESS VERIFICATION NETWORK</p>
 
-          <div className="demo-info" style={{ marginTop: 'auto' }}>
-            <p>AUTHORIZED DEMO CREDENTIALS:</p>
-            <ul>
-              <li>EMAIL: demo@example.com</li>
-              <li>PASS: password123</li>
-            </ul>
-          </div>
         </div>
 
         <div className="auth-form-wrapper">
