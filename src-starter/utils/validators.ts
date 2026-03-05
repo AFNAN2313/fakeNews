@@ -1,0 +1,63 @@
+// Validators
+
+export const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+export const validatePassword = (password: string): { valid: boolean; errors: string[] } => {
+  const errors: string[] = [];
+
+  if (password.length < 8) {
+    errors.push('Password must be at least 8 characters');
+  }
+  if (!/[A-Z]/.test(password)) {
+    errors.push('Password must contain at least one uppercase letter');
+  }
+  if (!/[a-z]/.test(password)) {
+    errors.push('Password must contain at least one lowercase letter');
+  }
+  if (!/[0-9]/.test(password)) {
+    errors.push('Password must contain at least one number');
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
+};
+
+export const validateUsername = (username: string): { valid: boolean; error?: string } => {
+  if (username.length < 3) {
+    return { valid: false, error: 'Username must be at least 3 characters' };
+  }
+  if (username.length > 20) {
+    return { valid: false, error: 'Username must not exceed 20 characters' };
+  }
+  if (!/^[a-zA-Z0-9_-]+$/.test(username)) {
+    return { valid: false, error: 'Username can only contain letters, numbers, underscores, and hyphens' };
+  }
+  return { valid: true };
+};
+
+export const validateNewsText = (text: string): { valid: boolean; error?: string } => {
+  const minLength = 20;
+  const maxLength = 5000;
+
+  if (text.trim().length < minLength) {
+    return { valid: false, error: `Text must be at least ${minLength} characters` };
+  }
+  if (text.length > maxLength) {
+    return { valid: false, error: `Text must not exceed ${maxLength} characters` };
+  }
+  return { valid: true };
+};
+
+export const validateUrl = (url: string): boolean => {
+  try {
+    new URL(url);
+    return true;
+  } catch {
+    return false;
+  }
+};

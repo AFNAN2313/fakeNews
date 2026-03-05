@@ -1,0 +1,253 @@
+.auth-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  background: var(--background);
+}
+
+.auth-split {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+.auth-sidebar {
+  flex: 1;
+  background: var(--surface);
+  color: var(--text-primary);
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-right: 5px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-sidebar::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: repeating-linear-gradient(45deg, var(--border), var(--border) 5px, transparent 5px, transparent 15px);
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.auth-sidebar>* {
+  z-index: 1;
+  position: relative;
+}
+
+.auth-form-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  background: var(--background);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 500px;
+}
+
+.auth-container.dossier-card {
+  background: var(--surface);
+  padding: 40px;
+  border: 4px solid var(--border);
+  box-shadow: 12px 12px 0 var(--border);
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  color: var(--danger-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.auth-sidebar h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  text-align: left;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.auth-subtitle {
+  text-align: left;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin-bottom: 32px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.error-message {
+  background: var(--surface);
+  color: var(--text-primary);
+  padding: 16px;
+  margin-bottom: 24px;
+  border: 3px solid var(--danger-color);
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--danger-color);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: 'Space Mono', monospace;
+  color: var(--text-primary);
+  font-weight: 900;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  padding: 16px;
+  border: 3px solid var(--border);
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  background: var(--surface);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  border-radius: 0;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--text-primary);
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 16px;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+}
+
+.brutalist-btn {
+  background: var(--danger-color) !important;
+  color: var(--surface) !important;
+  border: 3px solid var(--border) !important;
+  box-shadow: 6px 6px 0 var(--border) !important;
+  transition: all 0.2s ease !important;
+}
+
+.brutalist-btn:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 8px 8px 0 var(--border) !important;
+}
+
+.brutalist-btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 4px 4px 0 var(--border) !important;
+}
+
+.auth-link {
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  color: var(--text-secondary);
+  font-weight: 700;
+  margin-top: 32px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.auth-link a {
+  color: var(--danger-color);
+  font-weight: 900;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+  margin-left: 8px;
+}
+
+.auth-link a:hover {
+  border-color: var(--danger-color);
+}
+
+.demo-info {
+  background: var(--surface);
+  border: 3px solid var(--border);
+  padding: 16px;
+  margin-top: 32px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  font-family: 'Space Mono', monospace;
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.demo-info p {
+  margin: 0;
+  font-weight: 900;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.demo-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.demo-info li {
+  margin: 4px 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .auth-split {
+    flex-direction: column;
+  }
+
+  .auth-sidebar {
+    border-right: none;
+    border-bottom: 5px solid var(--border);
+    padding: 3rem 2rem;
+  }
+
+  .auth-sidebar h1 {
+    font-size: 2.5rem;
+  }
+
+  .auth-form-wrapper {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container.dossier-card {
+    padding: 24px;
+    box-shadow: 8px 8px 0 var(--border);
+  }
+}

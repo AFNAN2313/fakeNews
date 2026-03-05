@@ -1,0 +1,173 @@
+.about-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.about-hero {
+  text-align: left;
+  padding: 60px 0;
+  border-bottom: 4px solid var(--border);
+  margin-bottom: 60px;
+}
+
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  color: var(--danger-color);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.about-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.about-hero p {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.about-section {
+  margin-bottom: 60px;
+}
+
+.dossier-card {
+  background: var(--surface);
+  padding: 40px;
+  border: 4px solid var(--border);
+  box-shadow: 12px 12px 0 var(--border);
+  position: relative;
+}
+
+.dossier-card.danger-zone {
+  border-color: var(--danger-color);
+  box-shadow: 12px 12px 0 var(--danger-color);
+}
+
+.dossier-card.danger-zone h2 {
+  color: var(--danger-color);
+}
+
+.dossier-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.dossier-card p {
+  font-family: 'Space Mono', monospace;
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.brutalist-list {
+  font-family: 'Space Mono', monospace;
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.brutalist-list li {
+  margin-bottom: 16px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.brutalist-list.features-list li {
+  padding-left: 0;
+}
+
+.about-section ol.brutalist-list {
+  counter-reset: brutalist-counter;
+}
+
+.about-section ol.brutalist-list li {
+  counter-increment: brutalist-counter;
+}
+
+.about-section ol.brutalist-list li:before {
+  content: counter(brutalist-counter) ". ";
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  color: var(--danger-color);
+}
+
+.about-section ul.brutalist-list li:before {
+  content: "»";
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+  color: var(--danger-color);
+}
+
+.about-section ul.brutalist-list.features-list li:before {
+  content: none;
+}
+
+.about-section strong {
+  color: var(--danger-color);
+  font-weight: 900;
+}
+
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.tech-item h3 {
+  font-family: 'Space Mono', monospace;
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+  background: var(--border);
+  color: var(--surface);
+  display: inline-block;
+  padding: 4px 12px;
+}
+
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .dossier-card {
+    padding: 24px;
+    box-shadow: 8px 8px 0 var(--border);
+  }
+
+  .dossier-card.danger-zone {
+    box-shadow: 8px 8px 0 var(--danger-color);
+  }
+
+  .tech-stack {
+    grid-template-columns: 1fr;
+  }
+}
