@@ -5,6 +5,10 @@ export const ROUTES = {
   SIGNUP: '/signup',
   DETECTOR: '/detector',
   DASHBOARD: '/dashboard',
+  ANALYZE: '/analyze',
+  HISTORY: '/history',
+  ANALYSIS_DETAIL: '/analysis/:id',
+  PROFILE: '/profile',
   NOT_FOUND: '/404',
 } as const;
 

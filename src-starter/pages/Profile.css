@@ -1,0 +1,230 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-header {
+    border-bottom: 3px solid var(--border);
+    padding-bottom: 0.75rem;
+}
+
+.profile-title {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.profile-subtitle {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 0.25rem;
+}
+
+/* Grid Layout */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: 2px 2px 0 var(--border);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.card-header {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.card-header h2 {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.card-header.danger {
+    background: rgba(229, 57, 53, 0.1);
+    border-bottom-color: var(--accent);
+}
+
+.card-header.danger h2 {
+    color: var(--accent);
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Personnel Data */
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.data-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.data-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.data-value {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.status-indicator.active {
+    background: #059669;
+    box-shadow: 0 0 8px rgba(5, 150, 105, 0.5);
+}
+
+/* Settings */
+.settings-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.settings-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.checkbox-text {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    padding-top: 2px;
+}
+
+.brutalist-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--border);
+    border-radius: 2px;
+    background: var(--background);
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.brutalist-checkbox:checked {
+    background: var(--text-primary);
+}
+
+.brutalist-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 4px;
+    height: 10px;
+    border: solid var(--background);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Danger Zone */
+.danger-body {
+    gap: 1.5rem;
+}
+
+.danger-text {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.danger-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.danger-btn {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s ease;
+}
+
+.danger-btn:hover {
+    opacity: 0.9;
+}
+
+.danger-btn.outline {
+    background: transparent;
+    color: var(--accent);
+}
+
+.danger-btn.outline:hover {
+    background: rgba(229, 57, 53, 0.05);
+}
+
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .danger-actions {
+        flex-direction: column;
+    }
+}

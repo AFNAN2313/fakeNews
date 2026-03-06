@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/shared/Button/Button';
 import { ROUTES } from '../config/routes.config';
@@ -6,11 +6,9 @@ import './Landing.css';
 
 export const Landing: React.FC = () => {
   const navigate = useNavigate();
-  const [scrolled, setScrolled] = useState(false);
-
   React.useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      // scroll listener for future use
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);

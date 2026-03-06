@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Button } from '../components/shared/Button/Button';
 import { ROUTES } from '../config/routes.config';
@@ -7,6 +7,7 @@ import './Auth.css';
 
 export const Login: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { login, isLoading } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,7 +18,9 @@ export const Login: React.FC = () => {
     setError('');
     try {
       await login(email, password);
-      navigate(ROUTES.HOME);
+      // Determine where the user was trying to go before login, or default to DASHBOARD
+      const from = location.state?.from?.pathname || ROUTES.DASHBOARD;
+      navigate(from, { replace: true });
     } catch (err) {
       setError('AUTHORIZATION FAILED. INVALID CREDENTIALS.');
     }

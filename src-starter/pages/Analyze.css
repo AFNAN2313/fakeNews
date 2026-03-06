@@ -1,0 +1,227 @@
+.analyze-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 900px;
+    /* Narrower than dashboard for reading comfort */
+    margin: 0 auto;
+}
+
+.analyze-header {
+    border-bottom: 3px solid var(--border);
+    padding-bottom: 0.75rem;
+}
+
+.analyze-title {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.analyze-subtitle {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 0.25rem;
+}
+
+.analyze-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    box-shadow: 2px 2px 0 var(--border);
+    border-radius: 4px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Clean Inputs using Inter */
+.clean-input {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-primary);
+    background: var(--background);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clean-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.2);
+}
+
+.clean-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.texture-textarea {
+    resize: vertical;
+    min-height: 200px;
+    line-height: 1.6;
+}
+
+.textarea-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.25rem;
+}
+
+.word-count {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+/* Configurations */
+.config-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--background);
+}
+
+.radio-label.active {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: var(--text-primary);
+}
+
+.radio-label input[type="radio"] {
+    accent-color: var(--accent);
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.radio-text {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.select-input {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+/* Submit Button */
+.submit-scan-btn {
+    margin-top: 1rem;
+    background: var(--text-primary);
+    color: var(--background);
+    border: none;
+    padding: 1.25rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-scan-btn:hover:not(:disabled) {
+    background: var(--accent);
+}
+
+.submit-scan-btn:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.submit-scan-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.submit-scan-btn.scanning {
+    background: var(--text-secondary);
+    animation: pulse-scan 2s infinite ease-in-out;
+}
+
+.scanning-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+@keyframes pulse-scan {
+    0% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.7;
+    }
+}
+
+.form-error {
+    margin-top: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: #fff0f0;
+    border: 2px solid #E53935;
+    border-left: 6px solid #E53935;
+    color: #b71c1c;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .config-grid {
+        grid-template-columns: 1fr;
+    }
+}

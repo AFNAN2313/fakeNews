@@ -22,7 +22,7 @@ export interface AuthState {
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isAuthenticated: false,
-  isLoading: false,
+  isLoading: true, // true until initAuth() completes — prevents ProtectedRoute from redirecting on refresh
 
   initAuth: async () => {
     set({ isLoading: true });
@@ -47,24 +47,28 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
     set({ isLoading: false });
 
-    supabase.auth.onAuthStateChange(async (event, session) => {
+    supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session?.user) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
-        if (profile) {
-          set({
-            user: {
-              id: profile.id,
-              email: profile.email,
-              username: profile.username,
-              createdAt: profile.created_at,
-            },
-            isAuthenticated: true,
-          });
-        }
+        // Defer the profile fetch to avoid deadlocking the Supabase client.
+        // Making Supabase calls inside onAuthStateChange blocks auth from settling.
+        setTimeout(async () => {
+          const { data: profile } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('id', session.user.id)
+            .single();
+          if (profile) {
+            set({
+              user: {
+                id: profile.id,
+                email: profile.email,
+                username: profile.username,
+                createdAt: profile.created_at,
+              },
+              isAuthenticated: true,
+            });
+          }
+        }, 0);
       } else if (event === 'SIGNED_OUT') {
         set({ user: null, isAuthenticated: false });
       }

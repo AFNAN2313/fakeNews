@@ -1,0 +1,137 @@
+.history-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.history-header {
+    border-bottom: 3px solid var(--border);
+    padding-bottom: 0.75rem;
+}
+
+.history-title {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.history-subtitle {
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 0.25rem;
+}
+
+/* Controls (Search & Filters) */
+.history-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: var(--surface);
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 2px 2px 0 var(--border);
+}
+
+.search-box {
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+}
+
+.filter-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.filter-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
+
+.filter-btn.active {
+    background: var(--text-primary);
+    color: var(--background);
+    border-color: var(--text-primary);
+}
+
+/* Table overrides/additions specific to history */
+.history-table-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1rem 2rem;
+    box-shadow: 2px 2px 0 var(--border);
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.action-link {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.action-link:hover {
+    border-bottom-color: var(--accent);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem !important;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .history-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
+    .filter-group {
+        justify-content: space-between;
+    }
+
+    .history-table-container {
+        padding: 1rem;
+    }
+}
