@@ -7,6 +7,8 @@ import { Landing } from './pages/Landing';
 import { About } from './pages/About';
 import { Login } from './pages/Login';
 import { Signup } from './pages/Signup';
+import { ForgotPassword } from './pages/ForgotPassword';
+import { ResetPassword } from './pages/ResetPassword';
 import { NotFound } from './pages/NotFound';
 
 // Protected Pages
@@ -31,6 +33,8 @@ export const AppRouter: React.FC = () => {
           <Route path={ROUTES.ABOUT} element={<About />} />
           <Route path={ROUTES.LOGIN} element={<Login />} />
           <Route path={ROUTES.SIGNUP} element={<Signup />} />
+          <Route path={ROUTES.FORGOT_PASSWORD} element={<ForgotPassword />} />
+          <Route path={ROUTES.RESET_PASSWORD} element={<ResetPassword />} />
         </Route>
 
         {/* Protected Routes with Sidebar */}

@@ -71,6 +71,10 @@ export const Login: React.FC = () => {
             </form>
 
             <p className="auth-link">
+              FORGOT PASSCODE? <Link to={ROUTES.FORGOT_PASSWORD}>RESET IT</Link>
+            </p>
+
+            <p className="auth-link">
               NO CLEARANCE? <Link to={ROUTES.SIGNUP}>REQUEST ACCESS</Link>
             </p>
           </div>

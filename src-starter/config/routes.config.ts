@@ -9,6 +9,8 @@ export const ROUTES = {
   HISTORY: '/history',
   ANALYSIS_DETAIL: '/analysis/:id',
   PROFILE: '/profile',
+  FORGOT_PASSWORD: '/forgot-password',
+  RESET_PASSWORD: '/reset-password',
   NOT_FOUND: '/404',
 } as const;
 

@@ -69,6 +69,10 @@ export const useAuthStore = create<AuthState>((set) => ({
             });
           }
         }, 0);
+      } else if (event === 'PASSWORD_RECOVERY' && session?.user) {
+        // User clicked the reset link in their email — mark as authenticated
+        // so the ResetPassword page can call updateUser
+        set({ user: null, isAuthenticated: true });
       } else if (event === 'SIGNED_OUT') {
         set({ user: null, isAuthenticated: false });
       }
