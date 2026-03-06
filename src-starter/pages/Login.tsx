@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Button } from '../components/shared/Button/Button';
 import { ROUTES } from '../config/routes.config';
 import './Auth.css';
 
 export const Login: React.FC = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
   const { login, isLoading } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  // Redirect after login is handled by GuestRoute — once user is set in store,
+  // GuestRoute automatically navigates to /dashboard.
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     try {
       await login(email, password);
-      // Determine where the user was trying to go before login, or default to DASHBOARD
-      const from = location.state?.from?.pathname || ROUTES.DASHBOARD;
-      navigate(from, { replace: true });
     } catch (err) {
       setError('AUTHORIZATION FAILED. INVALID CREDENTIALS.');
     }
@@ -33,7 +31,6 @@ export const Login: React.FC = () => {
           <div className="hero-eyebrow">CLEARANCE LEVEL: RESTRICTED</div>
           <h1>SYSTEM LOGIN</h1>
           <p className="auth-subtitle">ENTER CREDENTIALS TO ACCESS VERIFICATION NETWORK</p>
-
         </div>
 
         <div className="auth-form-wrapper">

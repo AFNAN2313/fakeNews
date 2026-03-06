@@ -48,8 +48,11 @@ export const Header: React.FC = () => {
 
           {isAuthenticated ? (
             <>
-              <Link to={ROUTES.DETECTOR} className="nav-link" onClick={() => setMenuOpen(false)}>
-                Detector
+              <Link to={ROUTES.DASHBOARD} className="nav-link" onClick={() => setMenuOpen(false)}>
+                Dashboard
+              </Link>
+              <Link to={ROUTES.ANALYZE} className="nav-link" onClick={() => setMenuOpen(false)}>
+                Analyze
               </Link>
               <button onClick={handleLogout} className="nav-button logout-btn">
                 Logout

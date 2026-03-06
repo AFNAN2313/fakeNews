@@ -32,7 +32,7 @@ export const Landing: React.FC = () => {
                 RAW DATA. NO SPIN. We intercept and analyze news sources using machine models to detect falsehoods and verify credibility instantly.
               </p>
               <div className="hero-actions">
-                <Button onClick={() => navigate(ROUTES.DETECTOR)} size="lg" className="btn-primary">
+                <Button onClick={() => navigate(ROUTES.ANALYZE)} size="lg" className="btn-primary">
                   INITIATE ANALYSIS
                 </Button>
                 <button className="demo-btn" onClick={() => navigate(ROUTES.ABOUT)}>
@@ -184,7 +184,7 @@ export const Landing: React.FC = () => {
           <div className="cta-content">
             <h2>COMMENCE INVESTIGATION</h2>
             <p>THE TRUTH IS CLASSIFIED NO LONGER. DEPLOY THE ANALYZER.</p>
-            <Button onClick={() => navigate(ROUTES.DETECTOR)} size="lg" className="cta-button btn-danger">
+            <Button onClick={() => navigate(ROUTES.ANALYZE)} size="lg" className="cta-button btn-danger">
               [ EXAMINE SOURCE ]
             </Button>
           </div>
